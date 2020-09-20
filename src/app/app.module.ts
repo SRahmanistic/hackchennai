@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import { ShopItemsComponent } from './shop-items/shop-items.component';
 import { ItemsComponent } from './items/items.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ItemsComponent } from './items/items.component';
     HomeComponent,
     ShopItemsComponent,
     ItemsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { ItemsComponent } from './items/items.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

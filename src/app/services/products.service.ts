@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
+// // let header = new HttpHeaders();
+// header.set('Access-Control-Allow-Origin', '*');
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  products: Product[] = [
-    new Product(1, 'medicine', 'abc', 100, 'assets/pictures/medicine.jpg'),
-    new Product(2, 'kirana', '', 200, 'assets/pictures/kirana.png'),
-    new Product(3, 'clothing', '', 1000, 'assets/pictures/clothing.png'),
-    new Product(4, 'cosmetics', '', 500, 'assets/pictures/cosmetics.jpg'),
-  ];
+    private dataUrl = "http://localhost:3000";
 
-  constructor() {}
-  getProducts(): Product[] {
-    return this.products;
+    httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+  constructor(
+    private http: HttpClient
+  ) {}
+  getData(): Observable<any> {
+    return this.http.get<any>(this.dataUrl + '/people')
   }
 }

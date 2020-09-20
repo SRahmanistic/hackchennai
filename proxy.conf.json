@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+      "target": "http://localhost:3000/people",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+  }
+}
